@@ -18,12 +18,15 @@ nav {
   top: 0;
   width: 100%;
   padding: 20px;
-  background: #222;
+  background: rgba(34, 34, 34, 0.18); /* transparent dark */
   color: #fff;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
+  backdrop-filter: blur(12px); /* blur effect */
+  -webkit-backdrop-filter: blur(12px); /* Safari support */
+  box-shadow: 0 4px 24px rgba(10, 5, 63, 0.08); /* subtle shadow */
 }
 
 nav .logo {
@@ -142,12 +145,11 @@ nav ul li a.active {
   padding: 80px 10%;
   gap: 40px;
   text-align: justify;
-  background: linear-gradient(135deg, 
-    rgba(0,0,0,0.98) 0%, 
-    rgba(10,5,63,0.98) 35%, 
-    rgba(48,16,187,0.92) 80%, 
-    rgba(0,188,212,0.03) 100%
-  );
+  background: linear-gradient(135deg,
+      rgba(0, 0, 0, 0.98) 0%,
+      rgba(10, 5, 63, 0.98) 35%,
+      rgba(48, 16, 187, 0.92) 80%,
+      rgba(0, 188, 212, 0.03) 100%);
 }
 
 .about h2 {
@@ -161,7 +163,7 @@ nav ul li a.active {
 .about img {
   width: 280px;
   border-radius: 50%;
-  box-shadow: 0 16px 48px rgb(255, 255, 255);
+  box-shadow: 0 12px 48px 0 rgba(0, 94, 255, 0.55), 0 2px 24px 0 rgba(0, 188, 212, 0.18);
   border: 6px solid #0a053f;
   background: linear-gradient(135deg, #00bcd4 0%, #0a053f 100%) border-box;
   background-clip: padding-box, border-box;
@@ -176,18 +178,22 @@ nav ul li a.active {
 
 .about-text {
   max-width: 800px;
-  background: rgba(245, 247, 255, 0.92);
+  /* background: rgba(0, 33, 165, 0.1);  */
   padding: 32px 28px;
   border-radius: 16px;
-  box-shadow: 0 4px 24px rgba(10, 5, 63, 0.10);
+  box-shadow: 0 8px 32px rgba(10, 5, 63, 0.18), 0 2px 24px rgba(0, 188, 212, 0.12); /* glossy effect */
   font-size: 1.15rem;
+  font-style: poppins;
+  color: #ffffff;
   line-height: 1.8;
+  backdrop-filter: blur(16px); /* blur effect */
+  -webkit-backdrop-filter: blur(16px); /* Safari support */
 }
 
 .about-text h2 {
   margin-bottom: 16px;
   font-size: 2rem;
-  color: #0a053f;
+  color: #ffffff;
   letter-spacing: 1px;
 }
 
@@ -228,7 +234,7 @@ nav ul li a.active {
   letter-spacing: 1px;
 }
 
-.projects h3{
+.projects h3 {
   text-align: center;
   font-size: 1.5rem;
   margin-bottom: 12px;
@@ -323,13 +329,15 @@ footer {
 }
 
 .skills-card {
-  background: #0a053f;
+  background: rgba(10, 5, 63, 0.18); /* transparent dark blue */
   color: #fff;
   border-radius: 24px;
   padding: 28px 24px;
   min-width: 260px;
   flex: 1 1 260px;
-  box-shadow: 0 4px 16px rgba(10, 5, 63, 0.08);
+  box-shadow: 0 8px 32px rgba(10, 5, 63, 0.18), 0 2px 24px rgba(0, 188, 212, 0.12); /* glossy effect */
+  backdrop-filter: blur(12px); /* blur effect */
+  -webkit-backdrop-filter: blur(12px); /* Safari support */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -369,8 +377,8 @@ footer {
 }
 
 .skills-icons img {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   object-fit: contain;
   background: #fff;
   border-radius: 50%;
@@ -379,8 +387,11 @@ footer {
 }
 
 .skills-card.design .skills-icons img {
-  background: transparent;
-  box-shadow: none;
+  width: 50px;
+  height: 50px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(10, 5, 63, 0.08);
 }
 
 .skills-list {
@@ -430,17 +441,33 @@ footer {
     transform: scale(0.95) translateY(40px) rotate(-2deg);
     filter: brightness(1.2);
   }
+
   60% {
     opacity: 0.7;
     transform: scale(1.03) translateY(-8px) rotate(2deg);
     filter: brightness(1.05);
   }
+
   80% {
     filter: brightness(1);
   }
+
   100% {
     opacity: 1;
     transform: scale(1) translateY(0) rotate(0deg);
     filter: none;
   }
+}
+
+/* Additional Styles for Canva Icon */
+.canva-icon {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 50%;
+  padding: 4px;
+  box-shadow: 0 2px 8px rgba(10, 5, 63, 0.08);
+  display: inline-block;
+  margin-right: 8px;
 }
