@@ -868,20 +868,153 @@ footer {
   object-fit: cover;
 }
 
+/* Strip the gallery “card” look and keep only the image */
+.project-item > .project-gallery {
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  overflow: visible !important;
+  margin-bottom: 8px !important;
+}
+
+/* All preview images: identical size, full width */
+.project-item .pg-slide img {
+  width: 100% !important;
+  height: 460px !important;   /* desktop height */
+  object-fit: cover !important;
+  border-radius: 0 !important;
+}
+
+/* Ensure PIJOL and CatHub previews fit fully, same size/position */
+.project-item .pg-slide img[src*="Pijol/"],
+.project-item .pg-slide img[src*="CatHub/"] {
+  width: 100% !important;
+  height: 460px !important;
+  object-fit: contain !important;      /* keep full image visible */
+  object-position: center center !important;
+  background: transparent !important;  /* remove letterbox background */
+  display: block;
+}
+
+/* Keep responsive heights consistent */
 @media (max-width: 1024px) {
-  .project-item .pg-slide img {
+  .project-item .pg-slide img[src*="Pijol/"],
+  .project-item .pg-slide img[src*="CatHub/"] {
     height: 340px !important;
   }
 }
-
 @media (max-width: 768px) {
-  .project-item .pg-slide img {
+  .project-item .pg-slide img[src*="Pijol/"],
+  .project-item .pg-slide img[src*="CatHub/"] {
     height: 240px !important;
   }
 }
-
 @media (max-width: 480px) {
-  .project-item .pg-slide img {
+  .project-item .pg-slide img[src*="Pijol/"],
+  .project-item .pg-slide img[src*="CatHub/"] {
     height: 180px !important;
   }
 }
+
+/* Keep gallery height identical to current images so layout stays the same */
+.project-item > .project-gallery {
+  position: relative !important;
+  height: 460px !important;     /* matches your current desktop image height */
+  overflow: hidden !important;
+}
+
+/* Stack slides and animate (override the earlier display:none) */
+.pg-slide {
+  position: absolute !important;
+  inset: 0 !important;
+  display: block !important;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(0);
+  transition:
+    opacity 560ms cubic-bezier(.22,.61,.36,1),
+    transform 560ms cubic-bezier(.22,.61,.36,1),
+    filter 560ms cubic-bezier(.22,.61,.36,1);
+  will-change: opacity, transform, filter;
+}
+.pg-slide.is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0) scale(1);
+  filter: none;
+}
+
+.pg-slide.enter-from-right { transform: translateX(72px) scale(.96); opacity: 0; filter: blur(2px); }
+.pg-slide.enter-from-left  { transform: translateX(-72px) scale(.96); opacity: 0; filter: blur(2px); }
+.pg-slide.exit-to-left     { transform: translateX(-72px) scale(1.02); opacity: 0; filter: blur(3px) brightness(.98); }
+.pg-slide.exit-to-right    { transform: translateX(72px)  scale(1.02); opacity: 0; filter: blur(3px) brightness(.98); }
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .pg-slide, .pg-slide.is-active {
+    transition: none !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}
+
+/* === 3-up gallery (center big, sides smaller behind) === */
+.project-item > .project-gallery{
+  position: relative !important;
+  height: 460px !important;
+  overflow: visible !important;
+  --offset: 18%;      /* closer left/right */
+  --side-scale: .78;  /* smaller side images */
+}
+
+.project-item > .project-gallery .pg-slide{
+  position: absolute !important;
+  top: 0 !important;
+  bottom: auto !important;        /* cancel earlier inset:0 */
+  left: 50% !important;
+  right: auto !important;         /* cancel earlier inset:0 */
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+  pointer-events: none;
+  transform-origin: center center;
+  opacity: 1; visibility: visible;
+}
+
+/* images keep their full proportions */
+.project-item > .project-gallery .pg-slide img{
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  background: transparent !important;
+}
+
+/* positions: center on top, sides behind and closer */
+.projects .pg-center{
+  transform: translateX(-50%) scale(1);
+  z-index: 3;
+  filter: drop-shadow(0 30px 60px rgba(0,0,0,.5));
+}
+.projects .pg-left{
+  transform: translateX(calc(-50% - var(--offset))) scale(var(--side-scale)) rotate(-2deg);
+  z-index: 2; opacity: .96;
+}
+.projects .pg-right{
+  transform: translateX(calc(-50% + var(--offset))) scale(var(--side-scale)) rotate(2deg);
+  z-index: 2; opacity: .96;
+}
+/* hide any extra slides */
+.projects .pg-off{
+  transform: translateX(-50%) scale(.7);
+  z-index: 1; opacity: 0;
+}
+
+/* keep arrows clickable and near the gallery */
+.projects .project-item .pg-arrow,
+.projects .project-item .pg-dots{ z-index: 10 !important; pointer-events: auto; }
+.projects .project-item .pg-prev{ left: 14px; }
+.projects .project-item .pg-next{ right: 14px; }
+
+@media (max-width:1024px){ .projects .project-item > .project-gallery{ height:340px !important; --offset:16%; } }
+@media (max-width:768px){  .projects .project-item > .project-gallery{ height:260px !important; --offset:14%; } }
+@media (max-width:480px){  .projects .project-item > .project-gallery{ height:200px !important; --offset:12%; } }
