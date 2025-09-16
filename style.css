@@ -18,20 +18,45 @@ nav {
   top: 0;
   width: 100%;
   padding: 20px;
-  background: rgba(34, 34, 34, 0.18); /* transparent dark */
+  background: rgba(34, 34, 34, 0.18);
+  /* transparent dark */
   color: #fff;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
-  backdrop-filter: blur(12px); /* blur effect */
-  -webkit-backdrop-filter: blur(12px); /* Safari support */
-  box-shadow: 0 4px 24px rgba(10, 5, 63, 0.08); /* subtle shadow */
+  backdrop-filter: blur(12px);
+  /* blur effect */
+  -webkit-backdrop-filter: blur(12px);
+  /* Safari support */
+  box-shadow: 0 4px 24px rgba(10, 5, 63, 0.08);
+  /* subtle shadow */
 }
 
 nav .logo {
-  font-size: 24px;
-  font-weight: bold;
+  display: block;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 8px rgba(0, 94, 255, 0.55), 0 2px 24px 0 rgba(0, 188, 212, 0.18);
+  flex-shrink: 0;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+nav .logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+nav .logo:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 2px #001e4f, 0 6px 16px rgba(0, 0, 0, 0.35);
 }
 
 nav ul {
@@ -43,12 +68,15 @@ nav ul {
 nav ul li a {
   text-decoration: none;
   color: #fff;
-  transition: 0.3s;
   padding: 6px 14px;
   border-radius: 6px;
+  position: relative;      /* keeps hover effects above background */
+  z-index: 1;
+  transition: color .25s, transform .25s, box-shadow .25s, background-color .25s;
 }
 
 nav ul li a:hover,
+nav ul li a:focus-visible,
 nav ul li a.active {
   color: #0062ff;
   box-shadow: 0 4px 12px 0 #0a053f;
@@ -109,32 +137,20 @@ nav ul li a.active {
 
 .hero-wave {
   position: absolute;
-  left: 0;
-  right: 0;
+  left: 50%;
   bottom: 0;
-  width: 100%;
-  height: 120px;
+  width: 100vw;          /* container matches viewport width */
+  height: 80px;
+  transform: translateX(-50%);
   overflow: hidden;
   pointer-events: none;
+  z-index: 2;
 }
 
-.hero {
-  position: relative;
-  /* Add this if not present */
-}
-
-.wave-path {
-  animation: waveMove 4s ease-in-out infinite alternate;
-}
-
-@keyframes waveMove {
-  0% {
-    d: path("M0,60 C360,120 1080,0 1440,60 L1440,120 L0,120 Z");
-  }
-
-  100% {
-    d: path("M0,80 C360,40 1080,140 1440,80 L1440,120 L0,120 Z");
-  }
+.hero-wave svg {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 /* About */
@@ -181,13 +197,16 @@ nav ul li a.active {
   /* background: rgba(0, 33, 165, 0.1);  */
   padding: 32px 28px;
   border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(10, 5, 63, 0.18), 0 2px 24px rgba(0, 188, 212, 0.12); /* glossy effect */
+  box-shadow: 0 8px 32px rgba(10, 5, 63, 0.18), 0 2px 24px rgba(0, 188, 212, 0.12);
+  /* glossy effect */
   font-size: 1.15rem;
   font-style: poppins;
   color: #ffffff;
   line-height: 1.8;
-  backdrop-filter: blur(16px); /* blur effect */
-  -webkit-backdrop-filter: blur(16px); /* Safari support */
+  backdrop-filter: blur(16px);
+  /* blur effect */
+  -webkit-backdrop-filter: blur(16px);
+  /* Safari support */
 }
 
 .about-text h2 {
@@ -224,6 +243,7 @@ nav ul li a.active {
   padding: 80px 10%;
   background: #f9f9f9;
   text-align: justify;
+  position: relative;
 }
 
 .projects h2 {
@@ -329,15 +349,19 @@ footer {
 }
 
 .skills-card {
-  background: rgba(10, 5, 63, 0.18); /* transparent dark blue */
+  background: rgba(10, 5, 63, 0.18);
+  /* transparent dark blue */
   color: #fff;
   border-radius: 24px;
   padding: 28px 24px;
   min-width: 260px;
   flex: 1 1 260px;
-  box-shadow: 0 8px 32px rgba(10, 5, 63, 0.18), 0 2px 24px rgba(0, 188, 212, 0.12); /* glossy effect */
-  backdrop-filter: blur(12px); /* blur effect */
-  -webkit-backdrop-filter: blur(12px); /* Safari support */
+  box-shadow: 0 8px 32px rgba(10, 5, 63, 0.18), 0 2px 24px rgba(0, 188, 212, 0.12);
+  /* glossy effect */
+  backdrop-filter: blur(12px);
+  /* blur effect */
+  -webkit-backdrop-filter: blur(12px);
+  /* Safari support */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -435,6 +459,14 @@ footer {
   }
 }
 
+@media (max-width: 600px) {
+  .hero-wave, .about-wave, .projects-wave { height: 40px; }
+}
+
+/* Remove previous translateX animation on .wave-path */
+/* @keyframes waveShift { ... }   delete if present */
+/* .wave-path { animation: none; } /* ensure no transform animation */
+
 @keyframes aboutUniqueAnim {
   0% {
     opacity: 0;
@@ -470,4 +502,28 @@ footer {
   box-shadow: 0 2px 8px rgba(10, 5, 63, 0.08);
   display: inline-block;
   margin-right: 8px;
+}
+
+.hero, .about, .projects { position: relative; }
+
+.hero-wave,
+.about-wave,
+.projects-wave {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 100vw;          /* container matches viewport width */
+  height: 80px;
+  transform: translateX(-50%);
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.hero-wave svg,
+.about-wave svg,
+.projects-wave svg {
+  display: block;
+  width: 100%;
+  height: 100%;
 }

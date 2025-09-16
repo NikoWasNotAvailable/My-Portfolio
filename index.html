@@ -11,7 +11,9 @@
 <body>
     <!-- Navbar -->
     <nav>
-        <div class="logo">Portfolio</div>
+        <a href="#hero" class="logo">
+            <img src="Image/nagumo.jpg" alt="Portfolio logo">
+        </a>
         <div class="menu-toggle" id="menu-toggle">
             <span></span>
             <span></span>
@@ -33,8 +35,16 @@
             <p><b>Nicholas Luis Prawiro</b> • 2025</p>
         </div>
         <div class="hero-wave">
-            <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path class="wave-path" d="M0,60 C360,120 1080,0 1440,60 L1440,120 L0,120 Z" fill="#111" />
+            <svg viewBox="0 0 1920 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path class="wave-path" fill="#111"
+                    d="M0,70 C480,120 1440,0 1920,70 L1920,120 L0,120 Z">
+                    <animate attributeName="d" dur="8s" repeatCount="indefinite" keyTimes="0;0.5;1" calcMode="spline"
+                        keySplines=".42,0,.58,1; .42,0,.58,1"
+                        values="
+          M0,70 C480,120 1440,0 1920,70 L1920,120 L0,120 Z;
+          M0,58 C480,10 1440,130 1920,58 L1920,120 L0,120 Z;
+          M0,70 C480,120 1440,0 1920,70 L1920,120 L0,120 Z" />
+                </path>
             </svg>
         </div>
     </section>
@@ -120,6 +130,19 @@
                 </div>
             </div>
         </div>
+        <div class="about-wave">
+            <svg viewBox="0 0 1920 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path class="wave-path" fill="#111"
+                    d="M0,70 C480,120 1440,0 1920,70 L1920,120 L0,120 Z">
+                    <animate attributeName="d" dur="8s" repeatCount="indefinite" keyTimes="0;0.5;1" calcMode="spline"
+                        keySplines=".42,0,.58,1; .42,0,.58,1"
+                        values="
+          M0,70 C480,120 1440,0 1920,70 L1920,120 L0,120 Z;
+          M0,58 C480,10 1440,130 1920,58 L1920,120 L0,120 Z;
+          M0,70 C480,120 1440,0 1920,70 L1920,120 L0,120 Z" />
+                </path>
+            </svg>
+        </div>
     </section>
 
     <!-- Projects Section -->
@@ -161,6 +184,22 @@
                     systems to ensure a seamless shopping experience.
                 </p>
             </div>
+        </div>
+
+        <!-- Animated wave at the bottom of Projects -->
+        <div class="projects-wave">
+            <svg viewBox="0 0 1920 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path class="wave-path" fill="#111"
+                      d="M0,70 C480,120 1440,0 1920,70 L1920,120 L0,120 Z">
+                    <animate attributeName="d" dur="8s" repeatCount="indefinite"
+                             keyTimes="0;0.5;1" calcMode="spline"
+                             keySplines=".42,0,.58,1; .42,0,.58,1"
+                             values="
+                        M0,70 C480,120 1440,0 1920,70 L1920,120 L0,120 Z;
+                        M0,58 C480,10 1440,130 1920,58 L1920,120 L0,120 Z;
+                        M0,70 C480,120 1440,0 1920,70 L1920,120 L0,120 Z" />
+                </path>
+            </svg>
         </div>
     </section>
 
