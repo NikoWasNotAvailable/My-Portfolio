@@ -68,3 +68,21 @@ const heroObserver = new IntersectionObserver(
 if (heroText) {
   heroObserver.observe(heroText);
 }
+
+// Project gallery controls
+document.querySelectorAll('.project-gallery').forEach(g => {
+  const slides = [...g.querySelectorAll('.pg-slide')];
+  const dots = [...g.querySelectorAll('.pg-dot')];
+  const prev = g.querySelector('.pg-prev');
+  const next = g.querySelector('.pg-next');
+  let i = 0;
+  const show = n => {
+    i = (n + slides.length) % slides.length;
+    slides.forEach((s, k) => s.classList.toggle('is-active', k === i));
+    dots.forEach((d, k) => d.classList.toggle('is-active', k === i));
+  };
+  prev?.addEventListener('click', () => show(i - 1));
+  next?.addEventListener('click', () => show(i + 1));
+  dots.forEach((d, k) => d.addEventListener('click', () => show(k)));
+  show(0);
+});

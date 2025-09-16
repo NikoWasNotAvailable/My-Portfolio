@@ -36,11 +36,9 @@
         </div>
         <div class="hero-wave">
             <svg viewBox="0 0 1920 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                <path class="wave-path" fill="#111"
-                    d="M0,70 C480,120 1440,0 1920,70 L1920,120 L0,120 Z">
+                <path class="wave-path" fill="#111" d="M0,70 C480,120 1440,0 1920,70 L1920,120 L0,120 Z">
                     <animate attributeName="d" dur="8s" repeatCount="indefinite" keyTimes="0;0.5;1" calcMode="spline"
-                        keySplines=".42,0,.58,1; .42,0,.58,1"
-                        values="
+                        keySplines=".42,0,.58,1; .42,0,.58,1" values="
           M0,70 C480,120 1440,0 1920,70 L1920,120 L0,120 Z;
           M0,58 C480,10 1440,130 1920,58 L1920,120 L0,120 Z;
           M0,70 C480,120 1440,0 1920,70 L1920,120 L0,120 Z" />
@@ -132,11 +130,9 @@
         </div>
         <div class="about-wave">
             <svg viewBox="0 0 1920 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                <path class="wave-path" fill="#111"
-                    d="M0,70 C480,120 1440,0 1920,70 L1920,120 L0,120 Z">
+                <path class="wave-path" fill="#111" d="M0,70 C480,120 1440,0 1920,70 L1920,120 L0,120 Z">
                     <animate attributeName="d" dur="8s" repeatCount="indefinite" keyTimes="0;0.5;1" calcMode="spline"
-                        keySplines=".42,0,.58,1; .42,0,.58,1"
-                        values="
+                        keySplines=".42,0,.58,1; .42,0,.58,1" values="
           M0,70 C480,120 1440,0 1920,70 L1920,120 L0,120 Z;
           M0,58 C480,10 1440,130 1920,58 L1920,120 L0,120 Z;
           M0,70 C480,120 1440,0 1920,70 L1920,120 L0,120 Z" />
@@ -149,56 +145,100 @@
     <section class="projects" id="projects">
         <h2>Projects</h2>
         <div class="project-list">
-            <div class="project-card">
-                <img src="Image/KlinLogo.png" alt="Klin Klin Logo" class="project-logo">
-                <h3>Klin Klin Laundry</h3>
-                <p>
-                    Designed and developed a website that connects customers with nearby laundry services. I
-                    contributed to the entire process, from UI/UX design, frontend and backend coding to database
-                    management.
-                </p>
+
+            <!-- Item 1 -->
+            <div class="project-item">
+                <!-- Floating gallery -->
+                <div class="project-gallery">
+                    <div class="pg-slide is-active"><img src="https://placehold.co/800x450/png?text=Preview+1" alt="Project preview 1"></div>
+                    <div class="pg-slide"><img src="https://placehold.co/800x450/png?text=Preview+2" alt="Project preview 2"></div>
+                    <div class="pg-slide"><img src="https://placehold.co/800x450/png?text=Preview+3" alt="Project preview 3"></div>
+
+                    <button class="pg-arrow pg-prev" aria-label="Previous image">‹</button>
+                    <button class="pg-arrow pg-next" aria-label="Next image">›</button>
+
+                    <div class="pg-dots">
+                        <span class="pg-dot is-active"></span>
+                        <span class="pg-dot"></span>
+                        <span class="pg-dot"></span>
+                    </div>
+                </div>
+
+                <!-- Card -->
+                <div class="project-card">
+                    <img src="Image/KlinLogo.png" alt="Klin Klin Logo" class="project-logo">
+                    <h3>Klin Klin Laundry</h3>
+                    <p>Designed and developed a website that connects customers with nearby laundry services. I contributed to the entire process, from UI/UX design, frontend and backend coding to database management.</p>
+                </div>
             </div>
-            <div class="project-card">
-                <img src="Image/PijolLogo.png" alt="PIJOL Logo" class="project-logo">
-                <h3>PIJOL</h3>
-                <p>
-                    Led the design and development of a mobile app platform that facilitates on demand massage services.
-                    As the lead UI designer, I created intuitive user interfaces to enhance the user experience.
-                </p>
+
+            <!-- Item 2 -->
+            <div class="project-item">
+                <div class="project-gallery">
+                    <div class="pg-slide is-active"><img src="https://placehold.co/800x450/png?text=Preview+1" alt="Project preview 1"></div>
+                    <div class="pg-slide"><img src="https://placehold.co/800x450/png?text=Preview+2" alt="Project preview 2"></div>
+                    <div class="pg-slide"><img src="https://placehold.co/800x450/png?text=Preview+3" alt="Project preview 3"></div>
+                    <button class="pg-arrow pg-prev" aria-label="Previous image">‹</button>
+                    <button class="pg-arrow pg-next" aria-label="Next image">›</button>
+                    <div class="pg-dots"><span class="pg-dot is-active"></span><span class="pg-dot"></span><span class="pg-dot"></span></div>
+                </div>
+
+                <div class="project-card">
+                    <img src="Image/PijolLogo.png" alt="PIJOL Logo" class="project-logo">
+                    <h3>PIJOL</h3>
+                    <p>Led the design and development of a mobile app platform that facilitates on demand massage services. As the lead UI designer, I created intuitive user interfaces to enhance the user experience.</p>
+                </div>
             </div>
-            <div class="project-card">
-                <img src="Image/CatHubLogo.png" alt="Catering-Hub Logo" class="project-logo">
-                <h3>Catering-Hub</h3>
-                <p>
-                    Designed and programmed a mobile app platform that enables users to browse and order food
-                    from multiple catering services. As both programmer and UI designer, I contributed to the app's
-                    functionality and user experience.
-                </p>
+
+            <!-- Item 3 -->
+            <div class="project-item">
+                <div class="project-gallery">
+                    <div class="pg-slide is-active"><img src="https://placehold.co/800x450/png?text=Preview+1" alt="Project preview 1"></div>
+                    <div class="pg-slide"><img src="https://placehold.co/800x450/png?text=Preview+2" alt="Project preview 2"></div>
+                    <div class="pg-slide"><img src="https://placehold.co/800x450/png?text=Preview+3" alt="Project preview 3"></div>
+                    <button class="pg-arrow pg-prev" aria-label="Previous image">‹</button>
+                    <button class="pg-arrow pg-next" aria-label="Next image">›</button>
+                    <div class="pg-dots"><span class="pg-dot is-active"></span><span class="pg-dot"></span><span class="pg-dot"></span></div>
+                </div>
+
+                <div class="project-card">
+                    <img src="Image/CatHubLogo.png" alt="Catering-Hub Logo" class="project-logo">
+                    <h3>Catering-Hub</h3>
+                    <p>Designed and programmed a mobile app platform that enables users to browse and order food from multiple catering services. As both programmer and UI designer, I contributed to the app's functionality and user experience.</p>
+                </div>
             </div>
-            <div class="project-card">
-                <img src="Image/HiToyzLogo.png" alt="Hi-Toyz Logo" class="project-logo">
-                <h3>Hi-Toyz</h3>
-                <p>
-                    Designed an e-commerce website specializing in toys and its related products. As both
-                    programmer and UI designer in this project, I developed the website's user interface and backend
-                    systems to ensure a seamless shopping experience.
-                </p>
+
+            <!-- Item 4 -->
+            <div class="project-item">
+                <div class="project-gallery">
+                    <div class="pg-slide is-active"><img src="https://placehold.co/800x450/png?text=Preview+1" alt="Project preview 1"></div>
+                    <div class="pg-slide"><img src="https://placehold.co/800x450/png?text=Preview+2" alt="Project preview 2"></div>
+                    <div class="pg-slide"><img src="https://placehold.co/800x450/png?text=Preview+3" alt="Project preview 3"></div>
+                    <button class="pg-arrow pg-prev" aria-label="Previous image">‹</button>
+                    <button class="pg-arrow pg-next" aria-label="Next image">›</button>
+                    <div class="pg-dots"><span class="pg-dot is-active"></span><span class="pg-dot"></span><span class="pg-dot"></span></div>
+                </div>
+
+                <div class="project-card">
+                    <img src="Image/HiToyzLogo.png" alt="Hi-Toyz Logo" class="project-logo">
+                    <h3>Hi-Toyz</h3>
+                    <p>Designed an e-commerce website specializing in toys and its related products. As both programmer and UI designer in this project, I developed the website's user interface and backend systems to ensure a seamless shopping experience.</p>
+                </div>
             </div>
+
         </div>
 
-        <!-- Animated wave at the bottom of Projects -->
+        <!-- Animated wave at the bottom of Projects (keep) -->
         <div class="projects-wave">
             <svg viewBox="0 0 1920 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
                 <path class="wave-path" fill="#111"
-                      d="M0,70 C480,120 1440,0 1920,70 L1920,120 L0,120 Z">
+                    d="M0,70 C480,120 1440,0 1920,70 L1920,120 L0,120 Z">
                     <animate attributeName="d" dur="8s" repeatCount="indefinite"
-                             keyTimes="0;0.5;1" calcMode="spline"
-                             keySplines=".42,0,.58,1; .42,0,.58,1"
-                             values="
-                        M0,70 C480,120 1440,0 1920,70 L1920,120 L0,120 Z;
-                        M0,58 C480,10 1440,130 1920,58 L1920,120 L0,120 Z;
-                        M0,70 C480,120 1440,0 1920,70 L1920,120 L0,120 Z" />
-                </path>
+                        keyTimes="0;0.5;1" calcMode="spline"
+                        keySplines=".42,0,.58,1; .42,0,.58,1"
+                        values="M0,70 C480,120 1440,0 1920,70 L1920,120 L0,120 Z;
+                                M0,58 C480,10 1440,130 1920,58 L1920,120 L0,120 Z;
+                                M0,70 C480,120 1440,0 1920,70 L1920,120 L0,120 Z" />
             </svg>
         </div>
     </section>
