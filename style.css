@@ -80,10 +80,48 @@ nav ul li a {
 nav ul li a:hover,
 nav ul li a:focus-visible,
 nav ul li a.active {
-  color: #0062ff;
   box-shadow: 0 4px 12px 0 #0a053f;
   background: rgba(10, 5, 63, 0.18);
   transform: translateY(-12px);
+  /* shiny blue silhouette like section titles */
+  background-image: linear-gradient(120deg, #b9ecff 0%, #00bcd4 25%, #1e90ff 50%, #00bcd4 75%, #b9ecff 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+
+  -webkit-text-stroke: 0.6px rgba(0, 188, 212, 0.6);
+  text-shadow:
+    0 0 8px rgba(0, 188, 212, 0.55),
+    0 0 18px rgba(0, 118, 255, 0.35),
+    0 0 36px rgba(0, 118, 255, 0.25);
+
+  animation: shineGradient 6s linear infinite,
+             glowPulse 2.8s ease-in-out infinite alternate;
+}
+
+/* Active nav = shiny title, no box/background */
+nav ul li a.active {
+  /* remove card look */
+  box-shadow: none !important;
+  /* background: transparent !important; */
+  transform: none !important;
+
+  /* shiny blue silhouette like section titles */
+  background-image: linear-gradient(120deg, #b9ecff 0%, #00bcd4 25%, #1e90ff 50%, #00bcd4 75%, #b9ecff 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+
+  -webkit-text-stroke: 0.6px rgba(0, 188, 212, 0.6);
+  text-shadow:
+    0 0 8px rgba(0, 188, 212, 0.55),
+    0 0 18px rgba(0, 118, 255, 0.35),
+    0 0 36px rgba(0, 118, 255, 0.25);
+
+  animation: shineGradient 6s linear infinite,
+             glowPulse 2.8s ease-in-out infinite alternate;
 }
 
 /* Hamburger */
