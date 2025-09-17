@@ -267,6 +267,11 @@ nav ul li a.active {
   padding: 2px 8px;
   border-radius: 6px;
   font-weight: bold;
+  font-size: 1.1rem;
+  box-shadow: 0 0 8px rgba(0, 188, 212, 0.55), 0 0 18px rgba(0, 118, 255, 0.35);
+  text-shadow: 0 0 6px rgba(0, 188, 212, 0.45);
+  transition: background 0.3s ease;
+
 }
 
 .about-bullets ul {
@@ -630,8 +635,8 @@ html {
 
 /* Themed styles for the new buttons */
 .contact-btn.email {
-  background: rgba(0, 188, 212, 0.18);
-  border-color: rgba(0, 188, 212, 0.35);
+  background: rgba(0, 225, 255, 0.18);
+  border-color: rgba(3, 226, 255, 0.35);
 }
 
 .contact-btn.email:hover {
@@ -769,7 +774,7 @@ footer {
 }
 
 .skills-card h3 {
-  background: #3010bb;
+  background: linear-gradient(90deg, #00bcd4 40%, #1a237e 100%);
   color: #fff;
   border-radius: 24px;
   padding: 8px 24px;
@@ -777,7 +782,7 @@ footer {
   font-weight: 600;
   margin-bottom: 18px;
   letter-spacing: 2px;
-  text-transform: lowercase;
+  /* text-transform: lowercase; */
 }
 
 .skills-group {
